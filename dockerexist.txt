@@ -1,0 +1,8 @@
+docker pull nginx
+docker run -dit --name mynginx nginx
+docker exec -it mynginx bash
+echo "DevOps Practical" > test.txt
+cat test.txt
+exit
+docker commit mynginx mynginx:v2
+docker images

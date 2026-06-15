@@ -1,0 +1,6 @@
+docker build -t mywebpage .
+docker run -d -p 8080:80 mywebpage
+
+docker login
+docker tag mywebpage akkii2004/mywebpage:v1
+docker push akkii2004/mywebpage:v1
