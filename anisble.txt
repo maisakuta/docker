@@ -1,0 +1,36 @@
+# Create inventory file
+nano hosts
+
+# Content of hosts file
+[local]
+localhost ansible_connection=local
+
+# Verify inventory
+cat hosts
+
+# Check Ansible version
+ansible --version
+
+# Ping managed node
+ansible all -i hosts -m ping
+
+# Create directory
+ansible all -i hosts -m file -a "path=/tmp/devopsdir state=directory"
+
+# Verify directory
+ls /tmp
+
+# Delete directory
+ansible all -i hosts -m file -a "path=/tmp/devopsdir state=absent"
+
+# Create sample file
+echo "Hello Ansible" > demo.txt
+
+# Copy file to managed node
+ansible all -i hosts -m copy -a "src=demo.txt dest=/tmp/demo.txt"
+
+# Verify copied file
+cat /tmp/demo.txt
+
+# List hosts
+ansible all -i hosts --list-hosts
